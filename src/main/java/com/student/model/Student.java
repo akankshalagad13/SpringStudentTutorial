@@ -1,5 +1,6 @@
 package com.student.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,42 +12,55 @@ public class Student {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long RollNo;
+	private Long roll_no;
 	
-	private String Fname;
+	@Column
+	private String fname;
 	
-	private String Lname;
+	@Column
+	private String lname;
 
 	public Long getRollNo() {
-		return RollNo;
+		return roll_no;
 	}
 
 	public void setRollNo(Long rollNo) {
-		RollNo = rollNo;
+		roll_no = rollNo;
 	}
 
 	public String getFname() {
-		return Fname;
+		return fname;
 	}
 
 	public void setFname(String fname) {
-		Fname = fname;
+		this.fname = fname;
 	}
 
 	public String getLname() {
-		return Lname;
+		return lname;
 	}
 
 	public void setLname(String lname) {
-		Lname = lname;
+		this.lname = lname;
 	}
 
 	public Student(Long rollNo, String fname, String lname) {
-		
-		RollNo = rollNo;
-		Fname = fname;
-		Lname = lname;
+	
+		this.roll_no = rollNo;
+		this.fname = fname;
+		this.lname = lname;
 	}
+
+	@Override
+	public String toString() {
+		return "Student [roll_no=" + roll_no + ", fname=" + fname + ", lname=" + lname + "]";
+	}
+
+	public Student() {
+		
+	}
+
+	
 	
 
 }
